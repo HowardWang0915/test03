@@ -21,10 +21,12 @@ def on_message(mosq, obj, msg):
     data = str(msg.payload)
     data = data.split()
     log[0] = 0
-    for i in range(1, 100):
+    for i in range(1, 98):
         log[i] = float(data[i])
+        print(log[i], "i = ", i)
+    log[98] = 0
+    log[99] = 0
     # plot
-    print("fuck")
     fig, ax = plt.subplots()
     ax.plot(t, log)
     ax.set_ylabel('Velocity')
